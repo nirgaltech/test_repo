@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MathHelper{
+            static square(n){
+                return n*n;
+            }
+
+            static cube(n){
+                return n*n*n;
+            }
+
+            static average(numbers){
+                if(!numbers || !Array.isArray(numbers) || numbers.length == 0){
+                    return "Error!";
+                }
+
+                // let sum = 0;
+                // for(let i=0; i<numbers.length; i++){
+                //     sum += numbers[i];
+                // }
+                
+                //numbers.forEach( num => sum+=num );
+
+                //return sum / numbers.length;
+                const sum = numbers.reduce( (total, num) => total+num, 0 );
+
+                return sum / numbers.length;
+            }
+        }
+
+        console.log( MathHelper.square(3) );
+        console.log( MathHelper.cube(3) );
+        console.log( MathHelper.average([1,2,3,4,6]) );     
+        
+
+    </script>
+</body>
+</html>

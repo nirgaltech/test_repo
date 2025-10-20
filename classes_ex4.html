@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class BankAccount{
+            constructor(accountHolder, initialBalance){
+                this.accountHolder = accountHolder;
+                this.balance = initialBalance;
+            }
+
+            deposit(amount){ // הפקדה לחשבון
+                if(amount >= 0)
+                    this.balance += amount;
+                else
+                    console.log("Cannot deposit negative amount!");
+
+                return this.balance;
+            }
+
+            withdraw(amount){ // משיכה מהחשבון
+                if(amount >= 0 && this.balance >= amount)
+                    this.balance -= amount;
+                else
+                    console.log("No overdraft for you, go work!!");
+            }
+
+            getBalance(){
+                return this.balance;
+            }
+        }
+
+        const acc1 = new BankAccount('Mr. President', 500000);
+        acc1.deposit(1000000);
+        acc1.withdraw(350000);
+        acc1.withdraw(50000000);
+        console.log(acc1.getBalance());
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class StringUtils{
+            static capitalize(str){ // capitalize first letter only
+                return str.charAt(0).toUpperCase() + str.substring(1);
+            }
+
+            static capitalizeAll(str){ // capilized first char of every word
+                const words = str.split(' ');
+                words.forEach( (word,i) => words[i] = StringUtils.capitalize(word));
+
+                // for(let i=0; i<words.length; i++){
+                //     words[i] = StringUtils.capitalize(words[i]);
+                // }
+
+                return words.join(' ');
+            }
+        }
+
+        console.log(StringUtils.capitalize('hello world'));
+        console.log( StringUtils.capitalizeAll("hello world and thanks for all the fish") );
+        
+
+
+
+        //***************************************************************
+        // for in loop
+        //
+        class Car{
+            constructor(brand, model, hp){
+                this.brand = brand;
+                this.model = model;
+                this.hp = hp;
+            }
+        }
+
+        const myCar = new Car('Fiat', 'Punto', 80);
+        for(let key in myCar){
+            console.log(key, myCar[key]);
+        }
+
+        console.log(myCar.brand);
+        
+        
+    </script>
+</body>
+</html>

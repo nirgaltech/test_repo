@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <button id="btnInc">➕</button>
+        <button id="btnDec">➖</button>
+        <button id="btnReset">0️⃣</button>
+    </div>
+
+    counter: <span id="spanCounter"></span>
+
+    <hr>
+    <div>
+        <span id="ad">I am an Ad :(</span>
+    </div>
+
+    counter: <span id="spanAd"></span>
+
+    <script>
+        class Counter{
+            // this will always run when creating new Counter objects
+            constructor(){
+                this.count = 0;
+            }
+
+            increment(){
+                this.count++; // this.count = this.count + 1;
+            }
+
+            decrement(){
+                if(this.count > 0){
+                    this.count--;
+                }
+            }
+
+            reset(){
+                this.count = 0;
+            }
+
+            getValue(){
+                return this.count;
+            }
+        }
+
+
+        const clickCounter = new Counter(); // new instance ==> object
+        const span = document.getElementById('spanCounter');
+
+        document.getElementById('btnInc').addEventListener('click', ()=>{
+            clickCounter.increment();
+            span.innerText = clickCounter.getValue();
+        })
+
+        document.getElementById('btnDec').addEventListener('click', ()=>{
+            clickCounter.decrement();
+            span.innerText = clickCounter.getValue();
+        })
+
+        document.getElementById('btnReset').addEventListener('click', ()=>{
+            clickCounter.reset();
+            span.innerText = clickCounter.getValue();
+        })
+
+
+        const adCounter = new Counter();
+        document.getElementById('ad').addEventListener('mouseover', ()=>{
+            adCounter.increment();
+            document.getElementById('spanAd').innerText = adCounter.getValue();
+        })
+    </script>
+</body>
+</html>
